@@ -1,11 +1,11 @@
 package lambdas;
 
-import model.Podregion;
+import model.Region;
 
 import java.util.List;
 
 @FunctionalInterface
 public interface UnemploymentQuery {
-    public List<Podregion> execute();
+    public List<Region> execute();
 }
 
