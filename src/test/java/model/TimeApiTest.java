@@ -4,26 +4,25 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import java.time.*;
-import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
 
 public class TimeApiTest {
 
     @Test
     public void getNewYorkTime() {
-        Clock clock = Clock.system(ZoneId.of("America/New_York"));
+        ZonedDateTime time = ZonedDateTime.now(ZoneId.of("America/New_York"));
 
-        //FIXME
-
-        System.out.println(clock.instant());
+        System.out.println(time);
     }
 
     @Test
-    public void numberOfSecondsBetweenTwoDates() {
-        long seconds = 0;
+    public void numberOfDaysBetweenTwoDates() {
+        LocalDate startDate = LocalDate.now().minusDays(10);
+        LocalDate endDate = LocalDate.now();
 
-        //FIXME
+        long days = Period.between(startDate, endDate).getDays();
 
-        Assert.assertEquals(3600, seconds);
+        Assert.assertEquals(4, days);
     }
 
 
@@ -46,12 +45,18 @@ public class TimeApiTest {
     }
 
     @Test
-    public void countNumberOfWeeksInCurrentMonth() {
-        ZonedDateTime today = ZonedDateTime.now();
-        ZonedDateTime firstInMonth = today.with(TemporalAdjusters.firstDayOfMonth());
+    public void countNumberOfSundaysInJune2015() {
+        Calendar c = Calendar.getInstance();
+        int maxDaysInMonth = c.getMaximum(Calendar.DAY_OF_MONTH);
+        int firstSunday = c.get(Calendar.SUNDAY);
 
-        while (firstInMonth.getDayOfMonth() == today.getDayOfMonth())
-            System.out.println(firstInMonth.with(TemporalAdjusters.next(firstInMonth.getDayOfWeek())));
+        int sundays = 0;
+        int i = firstSunday;
+        ;
+        while (i < maxDaysInMonth) {
+            sundays++;
+            i += 7;
+        };
+        System.out.println(sundays);
     }
-
 }
