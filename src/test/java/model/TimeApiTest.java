@@ -4,15 +4,13 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import java.time.*;
-import java.util.Calendar;
 
 public class TimeApiTest {
 
     @Test
     public void getNewYorkTime() {
-        ZonedDateTime time = ZonedDateTime.now(ZoneId.of("America/New_York"));
-
-        System.out.println(time);
+        //FIXME
+        Assert.fail();
     }
 
     @Test
@@ -20,7 +18,8 @@ public class TimeApiTest {
         LocalDate startDate = LocalDate.now().minusDays(10);
         LocalDate endDate = LocalDate.now();
 
-        long days = Period.between(startDate, endDate).getDays();
+        //FIXME
+        long days = 0;
 
         Assert.assertEquals(4, days);
     }
@@ -46,17 +45,7 @@ public class TimeApiTest {
 
     @Test
     public void countNumberOfSundaysInJune2015() {
-        Calendar c = Calendar.getInstance();
-        int maxDaysInMonth = c.getMaximum(Calendar.DAY_OF_MONTH);
-        int firstSunday = c.get(Calendar.SUNDAY);
-
-        int sundays = 0;
-        int i = firstSunday;
-        ;
-        while (i < maxDaysInMonth) {
-            sundays++;
-            i += 7;
-        };
-        System.out.println(sundays);
+        //FIXME
+        Assert.fail();
     }
 }
