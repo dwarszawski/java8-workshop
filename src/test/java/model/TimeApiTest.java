@@ -3,13 +3,14 @@ package model;
 import junit.framework.Assert;
 import org.junit.Test;
 
-import java.time.*;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class TimeApiTest {
 
     @Test
     public void getNewYorkTime() {
-        //FIXME
         Assert.fail();
     }
 
@@ -18,18 +19,16 @@ public class TimeApiTest {
         LocalDate startDate = LocalDate.now().minusDays(10);
         LocalDate endDate = LocalDate.now();
 
-        //FIXME
-        long days = 0;
+        long days = 0; //FIXME
 
-        Assert.assertEquals(4, days);
+        Assert.assertEquals(10, days);
     }
 
 
     @Test
     public void countNumberOfDaysInApril2015() {
-        int lengthOfApril = 0;
 
-        //FIXME
+        int lengthOfApril = 0; //FIXME
 
         Assert.assertEquals(30, lengthOfApril);
     }
@@ -46,6 +45,5 @@ public class TimeApiTest {
     @Test
     public void countNumberOfSundaysInJune2015() {
         //FIXME
-        Assert.fail();
     }
 }

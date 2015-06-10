@@ -1,9 +1,10 @@
 package model;
 
+import com.beust.jcommander.internal.Lists;
+import com.beust.jcommander.internal.Maps;
 import junit.framework.Assert;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,16 +22,17 @@ public class RegionTest {
 
     @Test
     public void shouldFindRegionsWithUnemploymentHigherThan10Percent() {
-        List<Region> list = Region.RegionRepository.bezrobocie2014();
+        List<Region> result = Region.RegionRepository.bezrobocie2014();
 
         //FIXME
 
-        list.forEach((region) -> Assert.assertTrue(region.getStopaBezrobocia() > 10));
+        result.forEach((region) -> Assert.assertTrue(region.getStopaBezrobocia() > 10));
     }
 
     @Test
     public void groupPodregionByWojewodztwo() {
-        Map<Region.Wojewodztwo, List<Region>> map = new HashMap<>();
+        List<Region> list = Region.RegionRepository.bezrobocie2014();
+        Map<Region.Wojewodztwo, Region> map = Maps.newHashMap();
 
         //FIXME
 
@@ -40,6 +42,7 @@ public class RegionTest {
 
     @Test
     public void shouldPrintŁódzkieRegiony() {
+        List<Region> list = Region.RegionRepository.bezrobocie2014();
         String result = "";
 
         //FIXME
@@ -50,6 +53,7 @@ public class RegionTest {
 
     @Test
     public void shouldPrintRegionsCommaSeparated() {
+        List<Region> list = Region.RegionRepository.bezrobocie2014();
         String names = "";
 
         //FIXME
@@ -61,18 +65,20 @@ public class RegionTest {
     @Test
     public void shouldReturnUniqueProvinces() {
         List<Region> list = Region.RegionRepository.bezrobocie2014();
+        List<Region.Wojewodztwo> provinces = Lists.newArrayList();
 
         //FIXME
 
-        Assert.assertEquals(list.size(), 16);
+        Assert.assertEquals(provinces.size(), 16);
     }
 
     @Test
-    public void getRegionWithLowestStopaBezrobocie() {
+    public void getRegionWithLowestStopaBezrobocia() {
         List<Region> list = Region.RegionRepository.bezrobocie2014();
+        Region result = null;
 
         //FIXME
 
-        Assert.assertEquals(6, list.get(0).getIloscZarejestrowanych());
+        Assert.assertEquals(3.2, result.getStopaBezrobocia());
     }
 }
