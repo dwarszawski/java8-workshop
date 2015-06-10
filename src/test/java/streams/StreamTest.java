@@ -1,6 +1,5 @@
 package streams;
 
-import com.beust.jcommander.internal.Lists;
 import model.Region;
 import org.junit.Test;
 
@@ -12,7 +11,7 @@ public class StreamTest {
     @Test
     public void shouldFilterAndSortList() {
         List<Region> regions = Region.RegionRepository.bezrobocie2014();
-        List<Region> result = Lists.newArrayList();
+        List<Region> result = Collections.emptyList();
         for (Region r : regions) {
             if (r.getIloscZarejestrowanych() < 20) {
                 result.add(r);

@@ -1,10 +1,9 @@
 package model;
 
-import com.beust.jcommander.internal.Lists;
-import com.beust.jcommander.internal.Maps;
 import junit.framework.Assert;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +31,7 @@ public class RegionTest {
     @Test
     public void groupPodregionByWojewodztwo() {
         List<Region> list = Region.RegionRepository.bezrobocie2014();
-        Map<Region.Wojewodztwo, Region> map = Maps.newHashMap();
+        Map<Region.Wojewodztwo, Region> map = Collections.emptyMap();
 
         //FIXME
 
@@ -65,7 +64,7 @@ public class RegionTest {
     @Test
     public void shouldReturnUniqueProvinces() {
         List<Region> list = Region.RegionRepository.bezrobocie2014();
-        List<Region.Wojewodztwo> provinces = Lists.newArrayList();
+        List<Region.Wojewodztwo> provinces = Collections.emptyList();
 
         //FIXME
 

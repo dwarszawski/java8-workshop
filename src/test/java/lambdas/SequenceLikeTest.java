@@ -1,7 +1,7 @@
 package lambdas;
 
 import junit.framework.Assert;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 public class SequenceLikeTest {
     @Test
