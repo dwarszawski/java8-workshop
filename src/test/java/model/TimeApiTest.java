@@ -3,15 +3,16 @@ package model;
 import junit.framework.Assert;
 import org.junit.Test;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 
 public class TimeApiTest {
 
     @Test
     public void getNewYorkTime() {
-        Assert.fail();
+        ZonedDateTime time =
+                ZonedDateTime.now(ZoneId.of("America/New_York"));
+        System.out.println(time);
     }
 
     @Test
@@ -19,7 +20,7 @@ public class TimeApiTest {
         LocalDate startDate = LocalDate.now().minusDays(10);
         LocalDate endDate = LocalDate.now();
 
-        long days = 0; //FIXME
+        long days = Period.between(startDate, endDate).getDays();
 
         Assert.assertEquals(10, days);
     }
@@ -28,18 +29,23 @@ public class TimeApiTest {
     @Test
     public void countNumberOfDaysInApril2015() {
 
-        int lengthOfApril = 0; //FIXME
+        int lengthOfApril =
+                YearMonth.of(2015, Month.APRIL.getValue())
+                        .lengthOfMonth();
 
         Assert.assertEquals(30, lengthOfApril);
     }
 
     @Test
-    public void getNextMonday() {
-        LocalDateTime nextMonday = LocalDateTime.now();
+    public void getNextThursday() {
 
-        //FIXME
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime nextThrusday =
+                now.with(
+                        TemporalAdjusters.
+                                nextOrSame(DayOfWeek.THURSDAY));
 
-        Assert.assertEquals(nextMonday.getDayOfWeek(), DayOfWeek.MONDAY);
+        Assert.assertEquals(nextThrusday.getDayOfWeek(), DayOfWeek.THURSDAY);
     }
 
     @Test
